@@ -23,6 +23,25 @@ Models are evaluated using:
 * ROC AUC
 * Calibration
 
+### Model Comparison
+
+Model performance improves consistently as additional information is introduced.
+
+The largest early improvement comes from adding **shot distance**, showing that distance captures a substantial share of the spatial information related to shot quality. Adding **angle** and **non-linear spatial terms** produces further, but smaller, gains.
+
+The biggest improvement after the spatial models comes from adding **shot characteristics**, indicating that how a shot is taken provides meaningful predictive information beyond location alone.
+
+Across the model sequence, **Log Loss and Brier Score decrease while ROC AUC increases**, indicating improvements in both probabilistic accuracy and discrimination.
+
+| Model                |   Log Loss | Brier Score |    ROC AUC |
+| -------------------- | ---------: | ----------: | ---------: |
+| Constant probability |     0.2967 |      0.0796 |     0.5000 |
+| Distance             |     0.2667 |      0.0750 |     0.7398 |
+| Distance + Angle     |     0.2660 |      0.0746 |     0.7473 |
+| Non-linear Spatial   |     0.2632 |      0.0739 |     0.7537 |
+| Shot Characteristics | **0.2442** |  **0.0677** | **0.7948** |
+
+
 The project also includes xG probability surfaces and shot-map visualizations.
 
 <p align="center">
@@ -33,7 +52,8 @@ The project also includes xG probability surfaces and shot-map visualizations.
   >
 </p>
 
-➡️ **See the xG notebooks and full model comparison for methodology and results.**
+➡️ [Explore the full xG modelling workflow](notebooks/01_expected_goals/)  
+➡️ [View the model comparison notebook](notebooks/01_expected_goals/05_model_comparison.ipynb)
 
 ## Models
 
